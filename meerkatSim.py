@@ -1,12 +1,23 @@
 #!/usr/bin/env python
 
 # Charis, Eric, Zara Final Project
-# Simulation to plot variation in different phenotypes amongst a meerkat population 
+# Simulation to plot variation in different phenotypes amongst a meerkat population
 
 import numpy as np
 import numpy.random as nr
 import matplotlib.pyplot as plt
 print("Hello")
+
+class individual(object):
+    def __init__(self, smallLight, normalLight, smallDark, normalDark, numOff):
+        self.smallLight = smallLight
+        self.normalLight = normalLight
+        self.smallDark = smallDark
+        self.normalDark = normalDark
+        self.numOff = numOff
+
+    def reproduce(self):
+        self.numOff.smallLight = nr.poisson(2, 4)
 
 # User inputs for the population simulation
 totalPop = input("Enter desired starting population size: ")
