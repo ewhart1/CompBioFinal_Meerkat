@@ -6,25 +6,69 @@
 import numpy as np
 import numpy.random as nr
 import matplotlib.pyplot as plt
-print("Hello")
 
-class individual(object):
-    def __init__(self, smallLight, normalLight, smallDark, normalDark, numOff):
-        self.smallLight = smallLight
-        self.normalLight = normalLight
-        self.smallDark = smallDark
-        self.normalDark = normalDark
-        self.numOff = numOff
+class user_input(object):
 
-    def reproduce(self):
-        self.numOff.smallLight = nr.poisson(2, 4)
+	def inps():
+		startPop = int(input("Enter desired starting population size: "))
+		smallLight = int(input("Enter number of individuals from the starting population with light-colored coats and small bodies: "))
+		normalLight = int(input("Enter number of individuals from the starting population with light-colored coats and normal-sized bodies: "))
+		smallDark = int(input("Enter number of individuals from the starting population with dark coats and small bodies: "))
+		normalDark = int(input("Enter number of individuals from the starting population with dark coats and normal-sized bodies: "))
+		numberOfGen = int(input("Enter number of generations to run: "))
 
-# User inputs for the population simulation
-totalPop = input("Enter desired starting population size: ")
-smallLight = input("Enter number of individuals from the starting population with light-colored coats and small bodies: ")
-normalLight = input("Enter number of individuals from the starting population with light-colored coats and normal-sized bodies: ")
-smallDark = input("Enter number of individuals from the starting population with dark coats and small bodies: ")
-normalDark = input("Enter number of individuals from the starting population with dark coats and normal-sized bodies: ")
-numberOfGen = input("Enter number of generations to run: ")
-carryingCapacity = input("Enter the carrying capacity of the total population (all phenotypes combined): ")
+		numOff_smallLight = np.random.randint(2,5,1)
+		numOff_normalLight = np.random.randint(2,4,1)
+		numOff_smallDark = np.random.randint(0,4,1)
+		numOff_normalDark = np.random.randint(0,3,1)
+		total_smallLight = (numOff_smallLight * smallLight)
+		total_normalLight = (numOff_normalLight * normalLight)
+		total_smallDark = (numOff_smallDark * smallDark)
+		total_normalDark = (numOff_normalDark * normalDark)
+
+		num = [startPop]*(numberOfGen+1)
+
+
+		pheno = [total_smallLight, total_normalLight, total_smallDark, total_normalDark]
+		adult_gen = [smallLight, normalLight, smallDark, normalDark]
+		total_gen = [smallLight, normalLight, smallDark, normalDark]
+		a = 0
+		while a < len(pheno):
+			for i in range(numberOfGen):
+				numOff_smallLight = np.random.randint(2,5,1)
+				numOff_normalLight = np.random.randint(2,4,1)
+				numOff_smallDark = np.random.randint(0,4,1)
+				numOff_normalDark = np.random.randint(0,3,1)
+				total_smallLight = (numOff_smallLight * smallLight)
+				total_normalLight = (numOff_normalLight * normalLight)
+				total_smallDark = (numOff_smallDark * smallDark)
+				total_normalDark = (numOff_normalDark * normalDark)
+
+				total_gen[a] = ((pheno[a] + adult_gen[a]) + total_gen[a])
+
+			a += 1
+		print("Total number of small size, light coat Meerkats: " + str(total_gen[0]))
+		print("Total number of normal size, light coat Meerkats: " + str(total_gen[1]))
+		print("Total number of small size, dark coat Meerkats: " + str(total_gen[2]))
+		print("Total number of normal size, dark coat Meerkats: " + str(total_gen[3]))
+		print(numberOfGen)
+		print(total_gen[0])
+
+		plt.plot(range(numberOfGen+1), num,  color='red')
+		plt.plot(range(numberOfGen+1), num, color='blue')
+		plt.plot(range(numberOfGen+1), num, color='green')
+		plt.plot(range(numberOfGen+1), num, color='purple')
+
+
+# Labeling x and y axis and formatting plot.
+		plt.xlabel("Number of Generations")
+		plt.ylabel("Population Size")
+		plt.title("Change in Population Size Over Generations of Different Phenotypes of MeerKats")
+		abc = "Time"
+		plt.figtext(0.5, 0.005, abc, wrap=True, horizontalalignment='center', fontsize=10, color='red')
+		plt.show()
+
+
+user_input.inps()
+
 
