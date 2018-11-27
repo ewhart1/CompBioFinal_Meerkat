@@ -63,7 +63,7 @@ class user_input(object):
 		print(numberOfGen)
 		print(total_gen[0])
 #		print(per_gen[a])
-		print(num_1)
+#		print(num_1)
 
 		plt.plot(range(numberOfGen+1), num_1,  color='red')
 		plt.plot(range(numberOfGen+1), num_2, color='blue')
