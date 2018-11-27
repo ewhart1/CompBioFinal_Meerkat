@@ -31,6 +31,8 @@ class user_input(object):
 		total_gen = [smallLight, normalLight, smallDark, normalDark]
 		per_gen = [pheno, adult_gen]
 		a = 0
+		
+# insert an empty list		
 		while a < len(pheno):
 			for i in range(numberOfGen):
 				numOff_smallLight = np.random.randint(2,5,1)
