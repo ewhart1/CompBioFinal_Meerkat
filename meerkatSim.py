@@ -60,7 +60,7 @@ class user_input(object):
 		print("Total number of normal size, light coat Meerkats: " + str(total_gen[1]))
 		print("Total number of small size, dark coat Meerkats: " + str(total_gen[2]))
 		print("Total number of normal size, dark coat Meerkats: " + str(total_gen[3]))
-		print(numberOfGen)
+		print("Generations run: " +str(numberOfGen))
 		print(total_gen[0])
 #		print(per_gen[a])
 
