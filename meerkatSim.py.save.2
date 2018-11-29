@@ -1,0 +1,92 @@
+#!/usr/bin/env python
+
+# Charis, Eric, Zara Final Project
+# Simulation to plot variation in different phenotypes amongst a meerkat population
+
+import numpy as np
+import numpy.random as nr
+import matplotlib.pyplot as plt
+
+#class individual(sL, nL, sD, nD):
+#
+#	def __init__(self, numOff):
+#       # smallLight, normalLight, smallDark, normalDark,
+#       # self.smallLight = smallLight
+#       # self.normalLight = normalLight
+#       # self.smallDark = smallDark
+#       # self.normalDark = normalDark
+#		self.numOff = numOff
+#
+#	def reproduce(self):
+#		self.numOff.sL = np.random.randint(2,5,1)
+#		self.numOff.nL = np.random.randint(2,4,1)
+#		self.numOff.sD = np.random.randint(1,4,1)
+#		self.numOff.nD = np.random.randint(1,3,1)
+		#self.numOff.smallLight = np.random.randint(2,5,1)
+		#self.numOff.normalLight = np.random.randint(2,4,1)
+		#self.numOff.smallDark = np.random.randint(1,4,1)
+		#self.numOff.normalDark = np.random.randint(1,3,1)
+	#simulation()
+
+class user_input:
+# User inputs for the population simulation
+	 def inps(self):
+                self.startPop = input("Enter desired starting population size: ")
+                self.smallLight = input("Enter number of individuals from the starting population with light-colored coats$
+                self.normalLight = input("Enter number of individuals from the starting population with light-colored coat$
+                self.smallDark = input("Enter number of individuals from the starting population with dark coats and small$
+                self.normalDark = input("Enter number of individuals from the starting population with dark coats and norm$
+                self.numberOfGen = input("Enter number of generations to run: ")
+                self.carryingCapacity = input("Enter the carrying capacity of the total population (all phenotypes combine
+	def __init__(self, startPop, smallLight, normalLight, smallDark, normalDark, numberOfGen, carryingCapacity):
+		self.startPop = startPop
+		self.smallLight = smallLight
+		self.normalLight = normalLight
+		self.smallDark = smallDark
+		self.normalDark = normalDark
+		self.numberOfGen = numberOfGen
+		self.carryingCapacity = carryingCapacity
+
+	def inps(self):
+		self.startPop = input("Enter desired starting population size: ")
+		self.smallLight = input("Enter number of individuals from the starting population with light-colored coats and small bodies: ")
+		self.normalLight = input("Enter number of individuals from the starting population with light-colored coats and normal-sized bodies: ")
+		self.smallDark = input("Enter number of individuals from the starting population with dark coats and small bodies: ")
+		self.normalDark = input("Enter number of individuals from the starting population with dark coats and normal-sized bodies: ")
+		self.numberOfGen = input("Enter number of generations to run: ")
+		self.carryingCapacity = input("Enter the carrying capacity of the total population (all phenotypes combined): ")
+	#individual(smallLight, normalLight, smallDark, normalDark)
+user_input()
+
+class individual(user_input):
+
+        def __init__(self, numOff):
+       # smallLight, normalLight, smallDark, normalDark,
+       # self.smallLight = smallLight
+       # self.normalLight = normalLight
+       # self.smallDark = smallDark
+       # self.normalDark = normalDark
+                self.numOff = numOff
+
+        def reproduce(self):
+                #self.numOff.sL = np.random.randint(2,5,1)
+                #self.numOff.nL = np.random.randint(2,4,1)
+                #self.numOff.sD = np.random.randint(1,4,1)
+                #self.numOff.nD = np.random.randint(1,3,1)
+                self.numOff.smallLight = np.random.randint(2,5,1)
+                self.numOff.normalLight = np.random.randint(2,4,1)
+                self.numOff.smallDark = np.random.randint(1,4,1)
+                self.numOff.normalDark = np.random.randint(1,3,1)
+individual()
+        #simulation()
+
+class simulation(sP, nOG, nSL, nNL, nSD, nND, cC):
+	def calc(self):
+		num = [self.startPop]*((self.numberOfGen)+1)
+		pheno = [self.numOff.smallLight, self.numOff.normalLight, self.numOff.smallDark, self.numOff.normalDark]
+		a = 0
+		while a < len(pheno):
+			for i in range(self.numberOfGen):
+				num[i+1] = num[i] + (pheno[a])*num[i] * (1 - num[i]/self.carryingCapacity)
+				print(num)
+			a += 1
