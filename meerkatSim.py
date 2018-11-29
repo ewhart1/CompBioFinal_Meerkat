@@ -29,8 +29,11 @@ class user_input(object):
 		pheno = [total_smallLightOff, total_normalLightOff, total_smallDarkOff, total_normalDarkOff]
 		adult_gen = [smallLight, normalLight, smallDark, normalDark]
 		total_gen = [smallLight, normalLight, smallDark, normalDark]
-		per_gen = [pheno, adult_gen]
 		a = 0
+		perGen = []
+		perGen2 = []
+		perGen3 = []
+		perGen4 = []
 		while a < len(pheno):
 			for i in range(numberOfGen):
 				numOff_smallLight = np.random.randint(2,5,1)
@@ -43,32 +46,39 @@ class user_input(object):
 				total_normalDarkOff = (numOff_normalDark * normalDark)
 
 				total_gen[a] = ((pheno[a] + adult_gen[a]) + total_gen[a])
-
+				c = total_gen[a]
+				if a == 0:
+					perGen.extend(c)
+				elif a == 1:
+					perGen2.extend(c)
+				elif a == 2:
+					perGen3.extend(c)
+				else:
+					perGen4.extend(c)
 			a += 1
+#		perGen = (perGen+c)
+#		num_1 = [perGen]*(numberOfGen+1)
+#		num_2 = [perGen2]*(numberOfGen+1)
+#		num_3 = [perGen3]*(numberOfGen+1)
+#		num_4 = [perGen4]*(numberOfGen+1)
 
-#		for z in numberOfGen:
-#			per_gen = (pheno + adult_gen)
-#			per_gen[z+1] = per_gen[z] 
-
-
-		num_1 = [smallLight]*(numberOfGen+1)
-		num_2 = [normalLight]*(numberOfGen+1)
-		num_3 = [smallDark]*(numberOfGen+1)
-		num_4 = [normalDark]*(numberOfGen+1)
-
-		print("Total number of small size, light coat Meerkats: " + str(total_gen[0]))
-		print("Total number of normal size, light coat Meerkats: " + str(total_gen[1]))
-		print("Total number of small size, dark coat Meerkats: " + str(total_gen[2]))
-		print("Total number of normal size, dark coat Meerkats: " + str(total_gen[3]))
-		print("Generations run: " + str(numberOfGen))
+		#	a += 1
+		print("Total number of small size, light coat Meerkats, indicated by red line: " + str(total_gen[0]))
+		print("Total number of normal size, light coat Meerkats, indicated by blue line: " + str(total_gen[1]))
+		print("Total number of small size, dark coat Meerkats, indicated by green line: " + str(total_gen[2]))
+		print("Total number of normal size, dark coat Meerkats, indicated by purple line: " + str(total_gen[3]))
+		print("Generations run: " +str(numberOfGen))
 		print(total_gen[0])
-#		print(per_gen[a])
+		print(perGen)
+		print(perGen2)
+		print(perGen3)
+		print(perGen4)
+#		print(num_1)
 
-
-		plt.plot(range(numberOfGen+1), num_1,  color='red')
-#		plt.plot(range(numberOfGen+1), num_2, color='blue')
-#		plt.plot(range(numberOfGen+1), num_3, color='green')
-#		plt.plot(range(numberOfGen+1), num_4, color='purple')
+		plt.plot(range(numberOfGen), perGen,  color='red')
+		plt.plot(range(numberOfGen), perGen2, color='blue')
+		plt.plot(range(numberOfGen), perGen3, color='green')
+		plt.plot(range(numberOfGen), perGen4, color='purple')
 
 
 # Labeling x and y axis and formatting plot.
