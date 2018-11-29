@@ -63,10 +63,10 @@ class user_input(object):
 #		num_4 = [perGen4]*(numberOfGen+1)
 
 		#	a += 1
-		print("Total number of small size, light coat Meerkats, indicated by red line: " + str(total_gen[0]))
-		print("Total number of normal size, light coat Meerkats, indicated by blue line: " + str(total_gen[1]))
-		print("Total number of small size, dark coat Meerkats, indicated by green line: " + str(total_gen[2]))
-		print("Total number of normal size, dark coat Meerkats, indicated by purple line: " + str(total_gen[3]))
+		print("Total number of small size, light coat Meerkats: " + str(total_gen[0]))
+		print("Total number of normal size, light coat Meerkats: " + str(total_gen[1]))
+		print("Total number of small size, dark coat Meerkats: " + str(total_gen[2]))
+		print("Total number of normal size, dark coat Meerkats: " + str(total_gen[3]))
 		print("Generations run: " +str(numberOfGen))
 		print(total_gen[0])
 		print(perGen)
@@ -87,6 +87,7 @@ class user_input(object):
 		plt.title("Change in Population Size Over Generations of Different Phenotypes of MeerKats")
 		abc = "Time"
 		plt.figtext(0.5, 0.005, abc, wrap=True, horizontalalignment='center', fontsize=10, color='red')
+		plt.legend(('Small light', 'Normal light', 'Small dark', 'Normal dark'), loc='upper left')
 		plt.show()
 
 
