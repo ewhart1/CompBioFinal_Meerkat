@@ -1,0 +1,114 @@
+#!/usr/bin/env python
+
+# Charis, Eric, Zara Final Project
+# Simulation to plot variation in different phenotypes amongst a meerkat population
+
+import numpy as np
+import numpy.random as nr
+import matplotlib.pyplot as plt
+
+#class individual:
+#
+#	def __init__(self, smallLight, normalLight, smallDark, normalDark, numOff):
+#       # 	self.smallLight = smallLight
+#       # 	self.normalLight = normalLight
+#       # 	self.smallDark = smallDark
+#       # 	self.normalDark = normalDark
+#		self.numOff = numOff
+#
+#	def reproduce(self):
+#		self.numOff.sL = np.random.randint(2,5,1)
+#		self.numOff.nL = np.random.randint(2,4,1)
+#		self.numOff.sD = np.random.randint(1,4,1)
+#		self.numOff.nD = np.random.randint(1,3,1)
+		#self.numOff.smallLight = np.random.randint(2,5,1)
+		#self.numOff.normalLight = np.random.randint(2,4,1)
+		#self.numOff.smallDark = np.random.randint(1,4,1)
+		#self.numOff.normalDark = np.random.randint(1,3,1)
+	#simulation()
+class user_input(object):
+# User inputs for the population simulation
+#	def __init__(self, startPop=0, smallLight=0, normalLight=0, smallDark=0, normalDark=0, numberOfGen=0, carryingCapacity=0):
+#		self.startPop = startPop
+#		self.smallLight = smallLight
+#		self.normalLight = normalLight
+#		self.smallDark = smallDark
+#		self.normalDark = normalDark
+#		self.numberOfGen = numberOfGen
+#		self.carryingCapacity = carryingCapacity
+	def inps():
+		startPop = int(input("Enter desired starting population size: "))
+		smallLight = int(input("Enter number of individuals from the starting population with light-colored coats and small bodies: "))
+		normalLight = int(input("Enter number of individuals from the starting population with light-colored coats and normal-sized bodies: "))
+		smallDark = int(input("Enter number of individuals from the starting population with dark coats and small bodies: "))
+		normalDark = int(input("Enter number of individuals from the starting population with dark coats and normal-sized bodies: "))
+		numberOfGen = int(input("Enter number of generations to run: "))
+#		carryingCapacity = int(input("Enter the carrying capacity of the total population (all phenotypes combined): "))
+#		user_input.reproduce(smallLight, normalLight, smallDark, normalSDark)
+#	def reproduce(smallLight, normalLight, smallDark, normalDark):
+		numOff_smallLight = np.random.randint(2,5,1)
+		numOff_normalLight = np.random.randint(2,4,1)
+		numOff_smallDark = np.random.randint(1,4,1)
+		numOff_normalDark = np.random.randint(1,3,1)
+		total_smallLight = (numOff_smallLight * smallLight)
+		total_normalLight = (numOff_normalLight * normalLight)
+		total_smallDark = (numOff_smallDark * smallDark)
+		total_normalDark = (numOff_normalDark * normalDark)
+
+
+		pheno = [total_smallLight, total_normalLight, total_smallDark, total_normalDark]
+		adult_gen = [smallLight, normalLight, smallDark, normalDark]
+		total_gen = [smallLight, normalLight, smallDark, normalDark]
+		a = 0
+		while a < len(pheno):
+			for i in range(numberOfGen):
+				numOff_smallLight = np.random.randint(2,5,1)
+				numOff_normalLight = np.random.randint(2,4,1)
+				numOff_smallDark = np.random.randint(0,4,1)
+				numOff_normalDark = np.random.randint(0,3,1)
+				total_smallLight = (numOff_smallLight * smallLight)
+				total_normalLight = (numOff_normalLight * normalLight)
+				total_smallDark = (numOff_smallDark * smallDark)
+				total_normalDark = (numOff_normalDark * normalDark)
+
+				total_gen[a] = (pheno[a] + adult_gen[a])
+
+			a += 1
+		print("Total number of small size, light coat Meerkats: " + total_gen[0])
+		print("Total number of normal size, light coat Meerkats: " + total_gen[1])
+		print("Total number of small size, dark coat Meerkats: " + total_gen[2])
+		print("Total number of normal size, dark coat Meerkats: " + total_gen[3])
+		plt.plot(numberOfGen, color='red')
+		plt.plot(range(numGen+1), numberOfGen, color='blue')
+		plt.plot(range(numGen+1), numberOfGen, color='green')
+		plt.plot(range(numGen+1), numberOfGen, color='purple')
+# Labeling x and y axis and formatting plot.
+		plt.xlabel("Number of Generations")
+		plt.ylabel("Population Size")
+		plt.title("Change in Population Size Over Generations for Different Phenotypes of Meerkats")
+#		txt=("Growth Rate: %s, Carrying Capacity: %d" % (numOff,carCap))
+		plt.figtext(0.5, 0.005, txt, wrap=True, horizontalalignment='center', fontsize=8, color='red')
+#		plt.axvline(numpy.argmax(numpy.diff(num)), color = 'k' )
+		plt.show()
+
+#		numOff_smallLight = np.random.randint(2,5,1)
+#		numOff_normalLight = np.random.randint(2,4,1)
+#		numOff_smallDark = np.random.randint(1,4,1)
+#		numOff_normalDark = np.random.randint(1,3,1)
+#
+#		total_smallLight = (numOff_smallLight * smallLight)
+#		total_normalLight = (numOff_normalLight * normalLight)
+#		total_smallDark = (numOff_smallDark * smallDark)
+#		total_normalDark = (numOff_normalDark * normalDark)
+#
+#		pheno = [total_smallLight, total_normalLight, total_smallDark, total_normalDark]
+#		adult_gen = [smallLight, normalLight, smallDark, normalDark]
+#		total_gen = [smallLight, normalLight, smallDark, normalDark]
+#		a = 0
+#		while a < len(pheno):
+#			for i in range(numberOfGen):
+#				total_gen[a] = (pheno[a] + adult_gen[a])
+#
+#			a += 1
+
+user_input.inps()
