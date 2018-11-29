@@ -69,6 +69,7 @@ class user_input(object):
 		print("Total number of normal size, dark coat Meerkats, indicated by purple line: " + str(total_gen[3]))
 		print("Generations run: " +str(numberOfGen))
 		print(total_gen[0])
+<<<<<<< HEAD:meerkatSim.py
 		print(perGen)
 		print(perGen2)
 		print(perGen3)
@@ -79,6 +80,15 @@ class user_input(object):
 		plt.plot(range(numberOfGen), perGen2, color='blue')
 		plt.plot(range(numberOfGen), perGen3, color='green')
 		plt.plot(range(numberOfGen), perGen4, color='purple')
+=======
+#		print(per_gen[a])
+#		print(num_1)
+
+		plt.plot(range(numberOfGen+1), num_1,  color='red')
+		plt.plot(range(numberOfGen+1), num_2, color='blue')
+		plt.plot(range(numberOfGen+1), num_3, color='green')
+		plt.plot(range(numberOfGen+1), num_4, color='purple')
+>>>>>>> 6ad07e54cdc63b855976ceb2cf10d9c75df410a5:meerkatSim.py.save
 
 
 # Labeling x and y axis and formatting plot.
