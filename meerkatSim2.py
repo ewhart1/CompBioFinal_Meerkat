@@ -65,6 +65,7 @@ class user_input(object):
 #		num_4 = [perGen4]*(numberOfGen+1)
 
 		#	a += 1
+#Assigning line colors for the graph that will represent each possible phenotype. Aside from the line color, the line itself will reflect the total number of each phenotype.
 		print("Total number of small size, light coat Meerkats, indicated by red line: " + str(total_gen[0]))
 		print("Total number of normal size, light coat Meerkats, indicated by blue line: " + str(total_gen[1]))
 		print("Total number of small size, dark coat Meerkats, indicated by green line: " + str(total_gen[2]))
@@ -75,7 +76,7 @@ class user_input(object):
 		print(perGen2)
 		print(perGen3)
 		print(perGen4)
-#Identifying what line colors in the graph will represent each generation for each random simulation done. 
+
 #		print(num_1)
 
 		plt.plot(range(numberOfGen), perGen,  color='red')
@@ -84,15 +85,14 @@ class user_input(object):
 		plt.plot(range(numberOfGen), perGen4, color='purple')
 
 
-# Labeling x and y axis and formatting plot.
+# Labeling x and y axis and formatting plot. The graph will show the change in population size over generations for each phenotype.
 		plt.xlabel("Number of Generations")
 		plt.ylabel("Population Size")
 		plt.title("Change in Population Size Over Generations of Different Phenotypes of MeerKats")
 		abc = "Time"
 		plt.figtext(0.5, 0.005, abc, wrap=True, horizontalalignment='center', fontsize=10, color='red')
+		plt.legend(('Small light', 'Normal light', 'Small dark', 'Normal dark'), loc='upper left')
 		plt.show()
-
+#Creating a Legend to help easily identify what line represents what phenotype in the simulation.
 
 user_input.inps()
-
-
