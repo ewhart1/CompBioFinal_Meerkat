@@ -8,7 +8,8 @@ import numpy.random as nr
 import matplotlib.pyplot as plt
 
 class user_input(object):
-
+#Identifying the starting population for each individualphenotype that a meerkat is capable of having.
+#Identifying the amount of generations that will runalong with the starting population amounts already given to each phenotype.
 	def inps():
 		startPop = int(input("Enter desired starting population size: "))
 		smallLight = int(input("Enter number of individuals from the starting population with light-colored coats and small bodies: "))
@@ -16,16 +17,17 @@ class user_input(object):
 		smallDark = int(input("Enter number of individuals from the starting population with dark coats and small bodies: "))
 		normalDark = int(input("Enter number of individuals from the starting population with dark coats and normal-sized bodies: "))
 		numberOfGen = int(input("Enter number of generations to run: "))
-
+#Now we are allowing the simulation to randomly select integers that represent the amount of each phenotype present in the range we have provided.
 		numOff_smallLight = np.random.randint(2,5,1)
 		numOff_normalLight = np.random.randint(2,4,1)
 		numOff_smallDark = np.random.randint(0,4,1)
 		numOff_normalDark = np.random.randint(0,3,1)
+#Calculating the total number of offspring per phenotype after running the random offspring generator for each generation in a particular simulation.
 		total_smallLightOff = (numOff_smallLight * smallLight)
 		total_normalLightOff = (numOff_normalLight * normalLight)
 		total_smallDarkOff = (numOff_smallDark * smallDark)
 		total_normalDarkOff = (numOff_normalDark * normalDark)
-
+#Creating variables for later use.
 		pheno = [total_smallLightOff, total_normalLightOff, total_smallDarkOff, total_normalDarkOff]
 		adult_gen = [smallLight, normalLight, smallDark, normalDark]
 		total_gen = [smallLight, normalLight, smallDark, normalDark]
@@ -73,6 +75,7 @@ class user_input(object):
 		print(perGen2)
 		print(perGen3)
 		print(perGen4)
+#Identifying what line colors in the graph will represent each generation for each random simulation done. 
 #		print(num_1)
 
 		plt.plot(range(numberOfGen), perGen,  color='red')
