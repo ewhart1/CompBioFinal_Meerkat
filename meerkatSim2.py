@@ -80,7 +80,7 @@ class user_input(object):
 		plt.plot(range(numberOfGen), perGen4, color='purple')
 
 
-# Labeling x and y axis and formatting plot.
+# Labeling x/y axis, legend and formatting plot
 		plt.xlabel("Number of Generations")
 		plt.ylabel("Population Size")
 		plt.title("Change in Population Size Over Generations of Different Phenotypes of MeerKats")
